@@ -1,10 +1,18 @@
-set nocompatible              " be iMproved, required
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIMRC
+" Marco Herrero <me@marhs.de> / http://marhs.de/
+"
+" Install instructions in the last lines, use:
+"   > cat .vimrc
+" to see the instructions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VUNDLE
 " I use Vundle to install almost everithing, but this is being changed every
 " few months. Bungle, pathogen, etc.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
 filetype off                  " required
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -120,7 +128,6 @@ set incsearch		" Muestra resultados de busqueda mientas escribes
 set showmatch
 set hlsearch
 
-"
 set nobackup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -138,27 +145,45 @@ set foldlevel=99
 
 "set foldlevelstart=20
 
-set list            " Shows a simbol where the line ends
+"set list            " Shows a simbol where the line ends
+"
+"set guifont=Meslo\ LG\ M\ for\ Powerline
+set guifont=Hack:h12
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Personal Keymaps
+" PERSONAL KEYMAPS (Be careful in your workflow with these)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Leader remap to space
 let mapleader = "\<Space>"
 
+" Open .vimrc in a new tab with <Leader>vr
+:nmap <Leader>vr :tabe ~/.vim/vimrc<cr>
+
+" Search the selection in visual mode
+vnoremap * y/<C-R>"<CR>
+
 " Save a file:
 nnoremap <Leader>w :w<CR>
 
+" Enter removes search highlight
+nnoremap <Cr> :nohlsearch<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP Tags
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :nnoremap <Leader>p :CtrlPBufTag<CR>
 :nmap <Leader>bb :CtrlPBuffer<cr>
 :nmap <Leader>bm :CtrlPMixed<cr>
 :nmap <Leader>bs :CtrlPMRU<cr>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :nmap <Leader>e :NERDTreeToggle<CR>
 
-"" Fugitive
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fugitive
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :nmap <Leader>gd :Gvdiff<CR>
 :nmap <Leader>gc :Gcommit<CR>
 :nmap <Leader>gw :Gwrite<CR>
@@ -166,14 +191,10 @@ nnoremap <Leader>w :w<CR>
 :nmap <Leader>gs :Gstatus<CR>
 :nmap <Leader>gb :Gblame<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :nnoremap <Leader>tb :TagbarToggle<CR>
-
-"set guifont=Meslo\ LG\ M\ for\ Powerline
-set guifont=Hack:h12
-
-:nmap <Leader>vr :tabe ~/.vim/vimrc<cr>
-vnoremap * y/<C-R>"<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
@@ -191,7 +212,7 @@ let g:syntastic_check_on_wq = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
-" Indent if we're at the beginning of a line. Else, do completion.
+" INDENT if we're at the beginning of a line. Else, do COMPLETION.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! InsertTabWrapper()
@@ -227,13 +248,10 @@ map <leader>n :call RenameFile()<cr>
 command! GdiffInTab tabedit %|vsplit|Gdiff
 nnoremap <leader>d :GdiffInTab<cr>
 nnoremap <leader>D :tabclose<cr>
-"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enter removes search highlight
+" INSTALL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Cr> :nohlsearch<cr>
-"
-" INSTALL:
 "
 " First, clone the repo and link the .vimrc:
 "
