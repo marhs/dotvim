@@ -2,6 +2,8 @@ set nocompatible              " be iMproved, required
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VUNDLE
+" I use Vundle to install almost everithing, but this is being changed every
+" few months. Bungle, pathogen, etc.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype off                  " required
 
@@ -10,23 +12,23 @@ call vundle#begin()
 
 """ Plugins
 
-	" Vundle (self-update)
-	Plugin 'gmarik/Vundle.vim'
+    " Vundle (self-update)
+    Plugin 'gmarik/Vundle.vim'
 
-	" Fugitive : Git
-	Plugin 'tpope/vim-fugitive'
+    " Fugitive : Git
+    Plugin 'tpope/vim-fugitive'
 
-	" NERDTree : File explorer
-	Plugin 'scrooloose/nerdtree'
+    " NERDTree : File explorer
+    Plugin 'scrooloose/nerdtree'
 
     " Surround : Use brackets and parens easily
-	Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-surround'
 
     " Syntastic : Syntax checker
-	Plugin 'scrooloose/syntastic'
+    Plugin 'scrooloose/syntastic'
 
-    " Ctrl+P : File search like SublimeText
-	Plugin 'ctrlpvim/ctrlp.vim'
+    " Ctrl+P : File/tag/buffer search like SublimeText
+    Plugin 'ctrlpvim/ctrlp.vim'
         :let g:ctrlp_map = '<C-p>'
         :let g:ctrlp_match_window_bottom = 1
         :let g:ctrlp_match_window_reversed = 1
@@ -35,22 +37,14 @@ call vundle#begin()
         :let g:ctrlp_dotfiles = 0
         :let g:ctrlp_switch_buffer = 0
 
-    " Colorschemes
-	"Plugin 'altercation/vim-colors-solarized'
-    "Plugin 'chriskempson/base16-vim'
-    Plugin 'NLKNguyen/papercolor-theme'
-        let g:PaperColor_Light_CursorLine = "#dfdfff"
-        "let g:airline_theme='PaperColor'
-
     " Comment blocks <leader> + cc / cu
-	Plugin 'scrooloose/nerdcommenter'
+    " TODO Must be a nice way to do this without a plugin
+    Plugin 'scrooloose/nerdcommenter'
 
     " Best status line ever
-	Plugin 'bling/vim-airline'
+    " You need a patched font
+    Plugin 'bling/vim-airline'
         let g:airline_powerline_fonts = 1
-
-    " Rainbow lisp parenthesis a.k.a WHERE MAGIC HAPPENS
-    Plugin 'luochen1990/rainbow'
 
     " Easymotion
     Plugin 'Lokaltog/vim-easymotion'
@@ -58,17 +52,28 @@ call vundle#begin()
     " Tagbar
     Plugin 'majutsushi/tagbar'
 
-    " CLOJURE DEV TODO
+    """"""""""""""""""""""""""""""""""""""""""
+    " Language specific
+    """"""""""""""""""""""""""""""""""""""""""
+    " Clojure
     Plugin 'tpope/vim-salve'
     Plugin 'tpope/vim-fireplace'
-    "Plugin 'luochen1990/rainbow'
-    
+    " TODO Parens color plugin
 
-    " TODO Elm
+    " Elm
     "Plugin 'lambdatoast/elm.vim'
-    "
 
-" All of your Plugins must be added before the following line
+    """"""""""""""""""""""""""""""""""""""""""
+    " Colorschemes
+    """"""""""""""""""""""""""""""""""""""""""
+    "Plugin 'altercation/vim-colors-solarized'
+    "Plugin 'chriskempson/base16-vim'
+    Plugin 'NLKNguyen/papercolor-theme'
+        "let g:PaperColor_Light_CursorLine = "#dfdfff"
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" End Vundle
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -81,7 +86,6 @@ colorscheme PaperColor
 
 :syntax on
 
-set nocompatible
 set hidden
 set history=10000
 
@@ -129,8 +133,13 @@ set colorcolumn=160
 
 " Python folds with vim
 set foldmethod=indent
-set foldlevelstart=20
+set foldnestmax=3
+set foldlevel=99
 
+"set foldlevelstart=20
+
+set list            " Shows a simbol where the line ends
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Personal Keymaps
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -163,7 +172,12 @@ nnoremap <Leader>w :w<CR>
 "set guifont=Meslo\ LG\ M\ for\ Powerline
 set guifont=Hack:h12
 
+:nmap <Leader>vr :tabe ~/.vim/vimrc<cr>
+vnoremap * y/<C-R>"<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -174,9 +188,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
 :nmap <Leader>sc :SyntasticCheck pep8<cr>
-
-:nmap <Leader>vr :tabe ~/.vim/vimrc<cr>
-vnoremap * y/<C-R>"<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -222,14 +233,19 @@ nnoremap <leader>D :tabclose<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Cr> :nohlsearch<cr>
 "
-" El repositorio git es la carpeta .vim, donde está el archivo vimrc, que hay
-" que enlazar a ~/.vimrc con
+" INSTALL:
+"
+" First, clone the repo and link the .vimrc:
 "
 " git clone https://github.com/marhs/dotvim.git ~/.vim
 " ln -s ~/.vim/vimrc ~/.vimrc
 "
-" Luego hay que instalar vundle
+" Then install vundle
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
-" Abrir vim y :PluginInstall
-" Reiniciar vim
+" Open vim and execute :PluginInstall
+" Restart VIM and you're done!
+"
+"
+" P.S: I use a patched font (Hack at 12 points) for airline. You can set your
+" own or ignore it with set guifont
