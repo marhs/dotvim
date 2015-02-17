@@ -27,14 +27,20 @@ call vundle#begin()
 
 	Plugin 'bling/vim-airline'
 
+    Plugin 'lambdatoast/elm.vim'
 
+    Plugin 'amdt/vim-niji'
+    
+    "Plugin 'tpope/vim-leiningen'
+
+    "Plugin 'tpope/vim-fireplace'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Colors
 
-set background=light " Cambiar a light para el tono arena. 
+set background=dark " Cambiar a light para el tono arena. 
 colorscheme solarized
 
 " Basics
@@ -101,4 +107,7 @@ nnoremap <Leader>w :w<CR>
 " El repositorio git es la carpeta .vim, donde está el archivo vimrc, que hay
 " que enlazar a ~/.vimrc con
 " ln -s ~/.vim/vimrc ~/.vimrc
+
+"" Parentesis de colores, soporte para clips y jess
+let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure', 'jess', 'clips']
 
