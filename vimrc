@@ -15,25 +15,37 @@ call vundle#begin()
 	" NERDTree : File explorer	
 	Plugin 'scrooloose/nerdtree'
 
+    " Surround : Use brackets and parens easily
 	Plugin 'tpope/vim-surround'
 
+    " Syntastic : Syntax checker
 	Plugin 'scrooloose/syntastic'
 
+    " Ctrl+P : File search like SublimeText
 	Plugin 'kien/ctrlp.vim'
 
+    " Colorscheme
 	Plugin 'altercation/vim-colors-solarized'
 
+    " Comment blocks <leader> + cc / cu
 	Plugin 'scrooloose/nerdcommenter'
 
+    " Best status line ever
 	Plugin 'bling/vim-airline'
 
+    " TODO Elm 
     Plugin 'lambdatoast/elm.vim'
 
+    " Rainbow lisp parenthesis
     Plugin 'amdt/vim-niji'
     
-    "Plugin 'tpope/vim-leiningen'
+    " Easymotion
+    Plugin 'Lokaltog/vim-easymotion'
 
+    " CLOJURE DEV TODO
+    "Plugin 'tpope/vim-leiningen'
     "Plugin 'tpope/vim-fireplace'
+    "
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -109,5 +121,5 @@ nnoremap <Leader>w :w<CR>
 " ln -s ~/.vim/vimrc ~/.vimrc
 
 "" Parentesis de colores, soporte para clips y jess
-let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure', 'jess', 'clips']
+let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure', 'jess', 'clips', 'clp']
 
