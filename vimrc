@@ -23,43 +23,56 @@ call vundle#begin()
 
     " Ctrl+P : File search like SublimeText
 	Plugin 'kien/ctrlp.vim'
+        :let g:ctrlp_map = '<C-p>'
+        :let g:ctrlp_match_window_bottom = 0
+        :let g:ctrlp_match_window_reversed = 0
+        :let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+        :let g:ctrlp_working_path_mode = 'r'
+        :let g:ctrlp_dotfiles = 0
+        :let g:ctrlp_switch_buffer = 0
 
-    " Colorscheme
-	Plugin 'altercation/vim-colors-solarized'
-
+    " Colorschemes
+	"Plugin 'altercation/vim-colors-solarized'
+    "Plugin 'chriskempson/base16-vim'
+    Plugin 'NLKNguyen/papercolor-theme'
+        let g:PaperColor_Light_CursorLine = "#dfdfff"
+        "let g:airline_theme='PaperColor'
+        
     " Comment blocks <leader> + cc / cu
 	Plugin 'scrooloose/nerdcommenter'
 
     " Best status line ever
 	Plugin 'bling/vim-airline'
+        let g:airline_powerline_fonts = 1
 
-    " TODO Elm 
-    Plugin 'lambdatoast/elm.vim'
+    " Rainbow lisp parenthesis a.k.a WHERE MAGIC HAPPENS
+    Plugin 'luochen1990/rainbow'
 
-    " Rainbow lisp parenthesis
-    Plugin 'amdt/vim-niji'
-    
     " Easymotion
     Plugin 'Lokaltog/vim-easymotion'
+
+    " Tagbar
+    Plugin 'majutsushi/tagbar'
 
     " CLOJURE DEV TODO
     "Plugin 'tpope/vim-leiningen'
     "Plugin 'tpope/vim-fireplace'
+    " TODO Elm 
+    "Plugin 'lambdatoast/elm.vim'
     "
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Colors
-
-set background=dark " Cambiar a light para el tono arena. 
-colorscheme solarized
+set background=dark " Cambiar a light dark para el tono arena. 
+colorscheme PaperColor
 
 " Basics
 
 :syntax on
 
-set nocompatible		" Eliminar retrocompatibilidad
+set nocompatible		" Eliminar retrocompatibilidad FUCK THE OLD ONES
 set modelines=0			" Seguridad (por exploits)
 
 set tabstop=4			" 4 espacios de tabulacion
@@ -70,7 +83,7 @@ set expandtab
 set encoding=utf-8
 set number              " Muestra numeros de linea
 set relativenumber
-set scrolloff=3
+set scrolloff=5
 set autoindent
 set showmode
 set showcmd
@@ -103,23 +116,39 @@ nnoremap <Leader>w :w<CR>
 
 
 " CtrlP
-:let g:ctrlp_map = '<C-p>'
-:let g:ctrlp_match_window_bottom = 0
-:let g:ctrlp_match_window_reversed = 0
-:let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-":let g:ctrlp_working_path_mode = 0
-:let g:ctrlp_dotfiles = 0
-:let g:ctrlp_switch_buffer = 0
+:nnoremap <Leader>p :CtrlPBufTag<CR>
 
 "" NerdTree
 :nmap <Leader>e :NERDTreeToggle<CR>
 
-"" Vim powerline
+"" Fugitive
+:nmap <Leader>gd :Gvdiff<CR>
+:nmap <Leader>gc :Gcommit<CR>
+:nmap <Leader>gw :Gwrite<CR>
+:nmap <Leader>gr :Gread<CR> 
+:nmap <Leader>gs :Gstatus<CR>
 
+:nmap <Leader>bb :CtrlPBuffer<cr>
+:nmap <Leader>bm :CtrlPMixed<cr>
+:nmap <Leader>bs :CtrlPMRU<cr>
+
+" Tagbar
+:nnoremap <Leader>tt :TagbarToggle<CR>
+
+"" Vim powerline
+"
 " El repositorio git es la carpeta .vim, donde está el archivo vimrc, que hay
 " que enlazar a ~/.vimrc con
 " ln -s ~/.vim/vimrc ~/.vimrc
 
 "" Parentesis de colores, soporte para clips y jess
-let g:niji_matching_filetypes = ['lisp', 'scheme', 'clojure', 'jess', 'clips', 'clp']
+"let g:rainbow_active = 1
+"
+
+set guifont=Meslo\ LG\ M\ for\ Powerline
+
+" Python folds with vim
+"
+set foldmethod=indent
+set foldlevelstart=20
 
