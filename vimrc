@@ -22,7 +22,7 @@ call vundle#begin()
 	Plugin 'scrooloose/syntastic'
 
     " Ctrl+P : File search like SublimeText
-	Plugin 'kien/ctrlp.vim'
+	Plugin 'ctrlpvim/ctrlp.vim'
         :let g:ctrlp_map = '<C-p>'
         :let g:ctrlp_match_window_bottom = 0
         :let g:ctrlp_match_window_reversed = 0
