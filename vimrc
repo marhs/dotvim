@@ -143,9 +143,6 @@ nnoremap <Leader>w :w<CR>
 
 "" Vim powerline
 "
-" El repositorio git es la carpeta .vim, donde está el archivo vimrc, que hay
-" que enlazar a ~/.vimrc con
-" ln -s ~/.vim/vimrc ~/.vimrc
 
 "" Parentesis de colores, soporte para clips y jess
 "let g:rainbow_active = 1
@@ -171,3 +168,15 @@ let g:syntastic_check_on_wq = 1
 
 :nmap <Leader>vr :tabe ~/.vim/vimrc<cr>
 vnoremap * y/<C-R>"<CR>
+"
+" El repositorio git es la carpeta .vim, donde está el archivo vimrc, que hay
+" que enlazar a ~/.vimrc con
+"
+" git clone https://github.com/marhs/dotvim.git ~/.vim
+" ln -s ~/.vim/vimrc ~/.vimrc 
+"
+" Luego hay que instalar vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+" Abrir vim y :PluginInstall
+" Reiniciar vim
