@@ -61,6 +61,8 @@ call vundle#begin()
     " CLOJURE DEV TODO
     Plugin 'tpope/vim-salve'
     Plugin 'tpope/vim-fireplace'
+    "Plugin 'luochen1990/rainbow'
+    
 
     " TODO Elm
     "Plugin 'lambdatoast/elm.vim'
@@ -90,6 +92,7 @@ set softtabstop=4
 set expandtab
 set autoindent
 
+set linespace=-2
 set laststatus=2              " Windows always have status bars
 set encoding=utf-8
 set number
@@ -158,7 +161,7 @@ nnoremap <Leader>w :w<CR>
 :nnoremap <Leader>tb :TagbarToggle<CR>
 
 "set guifont=Meslo\ LG\ M\ for\ Powerline
-set guifont=Hack
+set guifont=Hack:h12
 
 " Syntastic
 set statusline+=%#warningmsg#
@@ -213,6 +216,11 @@ map <leader>n :call RenameFile()<cr>
 command! GdiffInTab tabedit %|vsplit|Gdiff
 nnoremap <leader>d :GdiffInTab<cr>
 nnoremap <leader>D :tabclose<cr>
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enter removes search highlight
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Cr> :nohlsearch<cr>
 "
 " El repositorio git es la carpeta .vim, donde está el archivo vimrc, que hay
 " que enlazar a ~/.vimrc con
