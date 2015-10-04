@@ -77,7 +77,7 @@ call vundle#begin()
     "Plugin 'altercation/vim-colors-solarized'
     "Plugin 'chriskempson/base16-vim'
     Plugin 'NLKNguyen/papercolor-theme'
-        "let g:PaperColor_Light_CursorLine = "#dfdfff"
+        let g:PaperColor_Light_CursorLine = "#dfdfff"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End Vundle
@@ -119,20 +119,23 @@ set cursorline
 set ttyfast
 set ruler
 set backspace=indent,eol,start
-set undofile		" Archivo de texto para guardar los undo al cerrar.
+set undofile                  " Save undo actions to a file
 
-set ignorecase		" Ignora mayus/minus al buscar
-set smartcase		" Mejora el trabajo con mayus minus
+" Case
+set ignorecase
+set smartcase
 
-set incsearch		" Muestra resultados de busqueda mientas escribes
-set showmatch
+" Search
+set incsearch 
+set showmatch 
 set hlsearch
 
+" Files and backup
 set nobackup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set noswapfile
-set nowritebackup
+set nowritebackup 
 set autoread
 
 "set wrap
@@ -149,7 +152,7 @@ set foldlevel=99
 "
 "set guifont=Meslo\ LG\ M\ for\ Powerline
 set guifont=Hack:h12
-"
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PERSONAL KEYMAPS (Be careful in your workflow with these)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -178,11 +181,13 @@ nnoremap <Cr> :nohlsearch<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree
+" <leader> e
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :nmap <Leader>e :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fugitive
+" <leader> g*
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :nmap <Leader>gd :Gvdiff<CR>
 :nmap <Leader>gc :Gcommit<CR>
@@ -192,12 +197,14 @@ nnoremap <Cr> :nohlsearch<cr>
 :nmap <Leader>gb :Gblame<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Tagbar
+" TAGBAR
+" <leader> tb
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :nnoremap <Leader>tb :TagbarToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic
+" SYNTASTIC
+" <leader> sc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -208,6 +215,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
+" Python pep8 style checker
 :nmap <Leader>sc :SyntasticCheck pep8<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -228,6 +236,7 @@ inoremap <s-tab> <c-n>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
+" <leader> n
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function! RenameFile()
@@ -243,6 +252,7 @@ map <leader>n :call RenameFile()<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Diff tab management: open the current git diff in a tab
+" <leader> d + <leader> D
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO This seems interesting for bigger screens
 command! GdiffInTab tabedit %|vsplit|Gdiff
