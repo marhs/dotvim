@@ -53,6 +53,7 @@ call vundle#begin()
     " You need a patched font
     Plugin 'bling/vim-airline'
         let g:airline_powerline_fonts = 1
+        let g:airline_theme='papercolor'
 
     " Easymotion
     Plugin 'Lokaltog/vim-easymotion'
@@ -61,23 +62,23 @@ call vundle#begin()
     Plugin 'majutsushi/tagbar'
 
     """"""""""""""""""""""""""""""""""""""""""
-    " Language specific
-    """"""""""""""""""""""""""""""""""""""""""
-    " Clojure
-    Plugin 'tpope/vim-salve'
-    Plugin 'tpope/vim-fireplace'
-    " TODO Parens color plugin
-
-    " Elm
-    "Plugin 'lambdatoast/elm.vim'
-
-    """"""""""""""""""""""""""""""""""""""""""
     " Colorschemes
     """"""""""""""""""""""""""""""""""""""""""
     "Plugin 'altercation/vim-colors-solarized'
     "Plugin 'chriskempson/base16-vim'
     Plugin 'NLKNguyen/papercolor-theme'
-        let g:PaperColor_Light_CursorLine = "#dfdfff"
+        let g:airline_theme = "papercolor"
+
+    """"""""""""""""""""""""""""""""""""""""""
+    " Language specific
+    """"""""""""""""""""""""""""""""""""""""""
+    " Clojure
+    "Plugin 'tpope/vim-salve'
+    "Plugin 'tpope/vim-fireplace'
+    " TODO Parens color plugin
+
+    " Elm
+    "Plugin 'lambdatoast/elm.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " End Vundle
@@ -126,8 +127,8 @@ set ignorecase
 set smartcase
 
 " Search
-set incsearch 
-set showmatch 
+set incsearch
+set showmatch
 set hlsearch
 
 " Files and backup
@@ -135,7 +136,7 @@ set nobackup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set noswapfile
-set nowritebackup 
+set nowritebackup
 set autoread
 
 "set wrap
@@ -151,7 +152,8 @@ set foldlevel=99
 "set list            " Shows a simbol where the line ends
 "
 "set guifont=Meslo\ LG\ M\ for\ Powerline
-set guifont=Hack:h12
+"set guifont=Hack:h10
+set guifont=Inconsolata\ for\ Powerline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PERSONAL KEYMAPS (Be careful in your workflow with these)
