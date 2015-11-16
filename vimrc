@@ -170,9 +170,6 @@ vnoremap * y/<C-R>"<CR>
 " Save a file:
 nnoremap <Leader>w :w<CR>
 
-" Enter removes search highlight
-nnoremap <Cr> :nohlsearch<cr>
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP Tags
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,7 +215,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 
 " Python pep8 style checker
-:nmap <Leader>sc :SyntasticCheck pep8<cr>
+:nmap <Leader>sc :SyntasticCheck flake8<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -260,6 +257,15 @@ map <leader>n :call RenameFile()<cr>
 command! GdiffInTab tabedit %|vsplit|Gdiff
 nnoremap <leader>d :GdiffInTab<cr>
 nnoremap <leader>D :tabclose<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GVIM
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set guioptions-=m " Remove menu bar
+set guioptions-=T " Remove tool bar
+set guioptions-=r " Remove right scroll bar
+set guioptions-=L " Remove left scroll bar
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INSTALL
