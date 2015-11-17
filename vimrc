@@ -154,7 +154,7 @@ set foldlevel=99
 "set guifont=Meslo\ LG\ M\ for\ Powerline
 "set guifont=Hack:h10
 set guifont=Inconsolata\ for\ Powerline\ 11
-set linespace=2
+set linespace=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PERSONAL KEYMAPS (Be careful in your workflow with these)
