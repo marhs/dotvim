@@ -53,7 +53,7 @@ call vundle#begin()
     " You need a patched font
     Plugin 'bling/vim-airline'
         let g:airline_powerline_fonts = 1
-        let g:airline_theme='papercolor'
+        let g:airline_theme = 'base16'
 
     " Easymotion
     Plugin 'Lokaltog/vim-easymotion'
@@ -66,8 +66,9 @@ call vundle#begin()
     """"""""""""""""""""""""""""""""""""""""""
     "Plugin 'altercation/vim-colors-solarized'
     "Plugin 'chriskempson/base16-vim'
+    Plugin 'chriskempson/base16-vim'
     Plugin 'NLKNguyen/papercolor-theme'
-        let g:airline_theme = "papercolor"
+        "let g:airline_theme = "papercolor"
 
     """"""""""""""""""""""""""""""""""""""""""
     " Language specific
@@ -87,7 +88,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 set background=dark                 " Dark/light
-colorscheme PaperColor
+colorscheme base16-ocean
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basics
@@ -140,7 +141,7 @@ set nowritebackup
 set autoread
 
 "set wrap
-set colorcolumn=160
+set colorcolumn=120
 
 " Python folds with vim
 set foldmethod=indent
@@ -152,8 +153,8 @@ set foldlevel=99
 "set list            " Shows a simbol where the line ends
 "
 "set guifont=Meslo\ LG\ M\ for\ Powerline
-"set guifont=Hack:h10
-set guifont=Inconsolata\ for\ Powerline\ 11
+set guifont=Hack
+"set guifont=Inconsolata\ for\ Powerline\ 11
 set linespace=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
