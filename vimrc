@@ -53,7 +53,7 @@ call vundle#begin()
     " You need a patched font
     Plugin 'bling/vim-airline'
         let g:airline_powerline_fonts = 1
-        let g:airline_theme = 'base16'
+        "let g:airline_theme = 'base16'
 
     " Easymotion
     Plugin 'Lokaltog/vim-easymotion'
@@ -61,6 +61,9 @@ call vundle#begin()
     " Tagbar
     Plugin 'majutsushi/tagbar'
 
+    " EditorConfig
+    Plugin 'editorconfig/editorconfig-vim'
+    
     """"""""""""""""""""""""""""""""""""""""""
     " Colorschemes
     """"""""""""""""""""""""""""""""""""""""""
@@ -68,7 +71,7 @@ call vundle#begin()
     "Plugin 'chriskempson/base16-vim'
     Plugin 'chriskempson/base16-vim'
     Plugin 'NLKNguyen/papercolor-theme'
-        "let g:airline_theme = "papercolor"
+        let g:airline_theme = "papercolor"
 
     """"""""""""""""""""""""""""""""""""""""""
     " Language specific
@@ -88,7 +91,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 set background=dark                 " Dark/light
-colorscheme base16-ocean
+colorscheme PaperColor
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basics
@@ -259,6 +262,11 @@ map <leader>n :call RenameFile()<cr>
 command! GdiffInTab tabedit %|vsplit|Gdiff
 nnoremap <leader>d :GdiffInTab<cr>
 nnoremap <leader>D :tabclose<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ctags
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>ct :! ctags -R ./<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GVIM
