@@ -283,7 +283,6 @@ set guioptions-=L " Remove left scroll bar
 " Just ctrl+c to copy, ctrl+p to paste.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-copy to buffer
 vmap <C-c> :w! ~/.vimbuffer<CR>
 nmap <C-c> :.w! ~/.vimbuffer<CR>
 " paste from buffer
