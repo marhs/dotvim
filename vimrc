@@ -278,6 +278,17 @@ set guioptions-=r " Remove right scroll bar
 set guioptions-=L " Remove left scroll bar
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Create a buffer to copy/paste from/to different vim sessions
+" Just ctrl+c to copy, ctrl+o to paste.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+vmap <C-c> :w! ~/.vimbuffer<CR>
+nmap <C-c> :.w! ~/.vimbuffer<CR>
+" paste from buffer
+map <C-o> :r ~/.vimbuffer<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INSTALL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
