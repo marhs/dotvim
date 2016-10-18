@@ -70,8 +70,8 @@ call vundle#begin()
     "Plugin 'altercation/vim-colors-solarized'
     "Plugin 'chriskempson/base16-vim'
     Plugin 'chriskempson/base16-vim'
-    Plugin 'NLKNguyen/papercolor-theme'
-        let g:airline_theme = "papercolor"
+    "Plugin 'NLKNguyen/papercolor-theme'
+    "    let g:airline_theme = "papercolor"
 
     """"""""""""""""""""""""""""""""""""""""""
     " Language specific
@@ -91,7 +91,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 set background=dark                 " Dark/light
-colorscheme PaperColor
+"colorscheme PaperColor
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Basics
